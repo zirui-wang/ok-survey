@@ -23,7 +23,7 @@ passport.use(
       callbackURL: "/auth/google/callback",
       proxy: true
     },
-    async (accsess, refreshToken, profile, done) => {
+    async (accsessToken, refreshToken, profile, done) => {
       const existingUser = await User.findOne({ googleId: profile.id });
       if (existingUser) {
         // We already have a record with the given id
